@@ -3,13 +3,22 @@
 @tailwind utilities;
 
 .header{
-    @apply flex justify-between p-2 bg-blue-400;
+    font-size: 20px;
+
+    @apply flex justify-between items-center p-3 px-5 bg-blue-300 ;
+    .navbar {
+        
+
+        @apply flex items-center gap-2 ;
+    }
+    .carrito {
+        .iconos {
+            height: 30px;
+        }
+        @apply flex items-center gap-2 ;
+    }
 }
 
-.iconos {
-    height: 20px;
-}
-img {
-    height: 50px;
-    background-position: center;
-}
+
+
+

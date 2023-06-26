@@ -1,10 +1,10 @@
-import Navbar from './componentes/header/header';
-import ItemListContainer from './componentes/itemListContainer/itemListContainer';
+import ItemListContainer from './components/ItemListContainer/ItemListContainer';
+import NavBar from './components/NavBar/NavBar';
 
 function App() {
   return (
     <>
-      <Navbar />
+      <NavBar/>
       <ItemListContainer greeting={"Bienvenidos"}/>
     </>
   )
