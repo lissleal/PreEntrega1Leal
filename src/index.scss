@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.header{
+    @apply flex justify-between p-2 bg-blue-400;
+}
+
+.iconos {
+    height: 20px;
+}
+img {
+    height: 50px;
+    background-position: center;
+}
