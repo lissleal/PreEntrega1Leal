@@ -1,0 +1,16 @@
+.header{
+    font-size: 30px;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    align-items: center;
+    background-color: rgb(90, 180, 222);
+    height: 80px;
+    gap: 20px;
+    .navbar {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        gap: 20px;    
+    }
+}

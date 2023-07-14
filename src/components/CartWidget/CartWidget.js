@@ -1,4 +1,6 @@
 import carroCompras from "./assets/carroCompras.png"
+import "./CartWidget.scss"
+
 
 function CartWidget () {
     return (

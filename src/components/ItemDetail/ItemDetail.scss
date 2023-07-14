@@ -1,0 +1,31 @@
+.CardDetail{
+    display: flex;
+    gap: 15px;
+    flex-direction: column;
+    align-items: center;
+    width: 800px;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: rgb(249, 171, 142);
+    text-align: center;
+    
+    .CardTitle{
+        font-size: 20px;
+    }
+    .CardBody{
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        justify-content: center;
+        align-items: center;
+        // margin;
+        .CardImage{
+            width: 90%;
+        }
+        .CardDescription{
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            text-align: justify;
+        }
+    }   
+}
