@@ -1,8 +1,24 @@
-import React from 'react'
+import { Link } from 'react-router-dom';
 import ItemCount from '../ItemCount/ItemCount'
 import './ItemDetail.scss'
+import { useState, useContext } from 'react'
+import { CarritoContext } from '../../context/CarritoContext'
 
 const ItemDetail = ({id, name, img, category, description, price, stock}) => {
+//traigo del context agregar producto
+
+const [quantityAdded, setQuantityAdded] = useState(0);
+//traer del context la funcion agregar producto
+const {addItem} = useContext(CarritoContext)
+
+const handleOnAdd = (quantity) => {
+    setQuantityAdded(quantity)
+    const item = {id, name, price}
+
+    addItem(item,quantity)
+}
+// const {agregarProducto} = useContext(CarritoContext);
+
   return (
     <article className='CardDetail'>
             <h2 className='CardTitle'>{name}</h2>
@@ -10,11 +26,20 @@ const ItemDetail = ({id, name, img, category, description, price, stock}) => {
             <img src={img} alt={name} className='CardImage'/>
             <div className='CardDescription'>
                 <p>Categoria: {category}</p>
+                <p>Id: {id}</p>
                 <p>Descripción: {description}</p>
                 <p>Precio: ${price}</p>
             </div>
         </section>
-            <ItemCount initial={1} stock={stock} onAdd={(quantity)=> console.log(`Cantidad Agregada`, quantity)} className="Botons"/>
+            <footer>
+                {
+                    quantityAdded > 0 ? (
+                        <Link to="/cart">Terminar Compra</Link>
+                    ) : (
+                        <ItemCount initial={1} stock={stock} onAdd={handleOnAdd} className="Botons"/>
+                    )
+                }
+            </footer>
     </article>  
     )
 }
