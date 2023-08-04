@@ -1,0 +1,21 @@
+.footer{
+    position: sticky;
+    bottom: 0px;
+    font-size: 15px;
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    align-items: center;
+    background-color: rgb(90, 180, 222);
+    // height: 80px;
+    gap: 10px;
+    .iconos {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        gap: 20px;  
+        img {
+            height: 30px;
+        }  
+    }
+}

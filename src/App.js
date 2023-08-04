@@ -5,6 +5,7 @@ import NavBar from './components/NavBar/NavBar';
 import { CarritoProvider } from './context/CarritoContext';
 import Cart from './components/Cart/Cart';
 import Checkout from './components/Checkout/Checkout';
+import Footer from './components/Footer/Footer';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route path='*' element={<h1>404 NOT FOUND</h1>}/>
         </Routes>
         </CarritoProvider>
+        <Footer/>
       </BrowserRouter>
 
     </>

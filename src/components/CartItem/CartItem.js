@@ -2,12 +2,11 @@
 import './CartItem.scss'
 
 const CartItem = ({...prod}) => {
-  // const {item} = useContext(CarritoContext)
-
+console.log(prod)
   return (
-    <li>
-      <p>Producto: {prod.item.name}</p>
-      <p>{prod.quantity} x {prod.item.price} = {prod.quantity * prod.item.price}</p>
+    <li className='productoItem'>
+      <p>{prod.item.name}</p>
+      <p>{prod.quantity} x ${prod.item.price} = ${prod.quantity * prod.item.price}</p>
     </li>
   )
 }

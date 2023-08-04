@@ -3,6 +3,7 @@ import { CarritoContext } from '../../context/CarritoContext'
 import { Timestamp, addDoc, collection, documentId, getDocs, query, where, writeBatch } from 'firebase/firestore'
 import { db } from '../../services/firebase/firebaseConfig'
 import CheckoutForm from '../CheckoutForm/CheckoutForm'
+import './Checkout.scss'
 
 const Checkout = () => {
 
@@ -80,11 +81,11 @@ const Checkout = () => {
     }
     if (orderId) {
         return (
-            <h1>El id de su orden es: {orderId}</h1>
+            <h1 className='checkout'>El id de su orden es: {orderId}</h1>
         )
     }
   return (
-    <div>
+    <div className='checkout'>
         <h1>Checkout</h1>
         <CheckoutForm onConfirm={createOrder} />
     </div>

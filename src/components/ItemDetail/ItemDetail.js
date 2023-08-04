@@ -27,6 +27,7 @@ const handleOnAdd = (quantity) => {
             <div className='CardDescription'>
                 <p>Categoria: {category}</p>
                 <p>Id: {id}</p>
+                <p>Disponibles: {stock}</p>
                 <p>Descripción: {description}</p>
                 <p>Precio: ${price}</p>
             </div>
@@ -34,7 +35,7 @@ const handleOnAdd = (quantity) => {
             <footer>
                 {
                     quantityAdded > 0 ? (
-                        <Link to="/cart">Terminar Compra</Link>
+                        <Link to="/cart" className='Button'>Terminar Compra</Link>
                     ) : (
                         <ItemCount initial={1} stock={stock} onAdd={handleOnAdd} className="Botons"/>
                     )
