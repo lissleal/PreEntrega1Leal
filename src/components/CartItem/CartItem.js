@@ -2,7 +2,6 @@
 import './CartItem.scss'
 
 const CartItem = ({...prod}) => {
-console.log(prod)
   return (
     <li className='productoItem'>
       <p>{prod.item.name}</p>

@@ -12,7 +12,7 @@ const CheckoutForm = ({onConfirm}) => {
       const userData = {
         name, phone, email
       }
-      console.log("se esta ejecutando el handle confirm")
+      
       onConfirm(userData)
 
     }

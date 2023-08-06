@@ -35,7 +35,9 @@ const ItemDetailContainer = () => {
     }, [id])
 if(loading){
     return(
-        <p>CARGANDO</p> //puede ser toast
+        <div className="Container">
+        <p>CARGANDO</p> 
+        </div >
     )
 }
 

@@ -4,16 +4,19 @@ import { Timestamp, addDoc, collection, documentId, getDocs, query, where, write
 import { db } from '../../services/firebase/firebaseConfig'
 import CheckoutForm from '../CheckoutForm/CheckoutForm'
 import './Checkout.scss'
+import Notificacion from '../Toastify/Notificacion'
 
 const Checkout = () => {
 
     const [loading, setLoading] = useState(false)
     const [orderId, setOrderId] = useState("")
+    const [error, setError] = useState(null)
 
     const { cart, total, clearCart} = useContext(CarritoContext) 
 
     const createOrder = async ({name, phone, email}) => {
         setLoading(true)
+        setError(null) 
 
         try {
             const objOrder = {
@@ -30,7 +33,6 @@ const Checkout = () => {
             const outOfStock = []
 
             const ids = cart.map(prod => prod.item.id )
-            console.log(ids)
 
             const productsRef = collection(db,"inventario")
 
@@ -62,12 +64,18 @@ const Checkout = () => {
                 setOrderId(orderAdded.id)
                 clearCart()
             }else{
-                console.error("Hay productos que estan fuera de stock")
+                setError("Hay productos que estan fuera de stock")
+                return(
+                    <Notificacion/>
+                )
             }
         
         }
         catch(error){
-            console.log(error)
+            setError("Ha ocurrido un error al procesar la orden")
+                        return(
+                <Notificacion/>
+            )
         }
         finally{
             setLoading(false)
@@ -86,6 +94,7 @@ const Checkout = () => {
     }
   return (
     <div className='checkout'>
+        {error && <Notificacion message={error} />}
         <h1>Checkout</h1>
         <CheckoutForm onConfirm={createOrder} />
     </div>
