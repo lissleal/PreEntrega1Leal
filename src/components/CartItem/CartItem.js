@@ -1,4 +1,3 @@
-// import React, { useContext } from 'react'
 import './CartItem.scss'
 
 const CartItem = ({...prod}) => {

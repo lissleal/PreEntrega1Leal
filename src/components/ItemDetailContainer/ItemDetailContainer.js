@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom"
 
 import { getDoc, doc } from "firebase/firestore"
 import { db } from "../../services/firebase/firebaseConfig"
+import { toast } from "react-toastify"
 
 const ItemDetailContainer = () => {
 

@@ -2,16 +2,20 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 import NavBar from './components/NavBar/NavBar';
-import { CarritoProvider } from './context/CarritoContext';
+import { CartProvider } from './context/CartContext';
 import Cart from './components/Cart/Cart';
 import Checkout from './components/Checkout/Checkout';
 import Footer from './components/Footer/Footer';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 function App() {
+
   return (
     <>
       <BrowserRouter>
-        <CarritoProvider>
+        <CartProvider>
         <NavBar/>
         <Routes>
           <Route path='/' element={<ItemListContainer greeting={"¡Bienvenido! Acá encontrarás todo para tu mascota"}/>}/>
@@ -21,9 +25,14 @@ function App() {
           <Route path='/checkout' element={<Checkout/>}/>
           <Route path='*' element={<h1>404 NOT FOUND</h1>}/>
         </Routes>
-        </CarritoProvider>
+        </CartProvider>
         <Footer/>
       </BrowserRouter>
+      <ToastContainer
+hideProgressBar={false}
+pauseOnHover={true}
+/>
+
 
     </>
   )

@@ -1,10 +1,7 @@
 import {useState} from 'react'
 import './ItemCount.scss'
-// import { CarritoContext } from '../../context/CarritoContext'
 
 const ItemCount = (({stock, initial, onAdd}) => {
-
-    // const {agregarProducto} = useContext(CarritoContext);
 
     const [quantity, setQuantity] = useState(initial) 
 

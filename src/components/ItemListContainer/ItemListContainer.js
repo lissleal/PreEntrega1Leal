@@ -6,7 +6,7 @@ import { useParams } from "react-router-dom"
 import { getDocs, collection, query, where } from "firebase/firestore"
 import { db } from "../../services/firebase/firebaseConfig"
 import './ItemListContainer.scss'
-import Notificacion from "../Toastify/Notificacion"
+import { toast } from "react-toastify"
 
 function ItemListContainer ({greeting}) {
     const [products, setProducts] = useState([]);
@@ -30,10 +30,7 @@ function ItemListContainer ({greeting}) {
                 setProducts(productsAdapted)
             })
             .catch(error => {
-                console.log(error)
-                return (
-                    <Notificacion/>
-                )
+                toast.error(error)
             })
             .finally(() => {
                 setLoading(false)
@@ -41,6 +38,13 @@ function ItemListContainer ({greeting}) {
         
     }, [categoryId])
 
+    if (loading) {
+        return (
+            <div className="Container">
+                <p>CARGANDO</p>
+            </div>
+        )
+    }
     
     return (
         <div className="ContenedorPrincipal">

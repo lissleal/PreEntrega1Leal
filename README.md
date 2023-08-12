@@ -1,60 +1,36 @@
 # Proyecto de Curso de React CoderHouse
 
-Ecommerce Colitas. Tienda de Mascotas. 
+## Tienda de Mascotas - Ecommerce Colitas
 
-Descripcion breve del proyecto
+¡Bienvenido al README del proyecto de la Tienda de Mascotas Colitas! Esta es una aplicación web construida con React que funciona como una plataforma en línea para comprar productos relacionados con mascotas. Ya seas un dueño de mascota o un entusiasta de los animales, este sitio web ofrece una amplia gama de suministros para tus amigos peludos.
 
-Listado de tecnologias usadas
-(librerias, react etc, revisar el package json)
-si son especificas decir para que se uso
+## Tecnologías Utilizadas
+- React
+- React DOM
+- React Router DOM
+- Firebase
+- React Toastify
+- Sass
 
-borrar lo que no use de package json
-no borrar web vitals ni testings, no los estamos usando pero vinieron por defecto
+Puedes ver el deploy de la página [acá](https://lealproyectofinal.vercel.app/) 
+
+¡Gracias por tu interés en el proyecto de la Tienda de Mascotas en formato Ecommerce! ¡Esperamos que disfrutes usando y explorando el sitio web tanto como nosotros disfrutamos construyéndolo! Si tienes alguna pregunta o sugerencia, no dudes en ponerte en contacto. ¡Felices compras para tus adorables mascotas! 🐾
 
 
 //Entregables
 video de la navegacion del proyecto 
 
-build y deploy 
 
-Build, compilacion final antes de subir los archivos al servidor web
-npm run build 
-tarda un poco
-se crea una carpeta llamada build
-
-deploy subir los archivos al servidor web
-
-Pagina versel, se puede linkear con github
-Nuevoproyecto ----> busco mi repositorio
----> import ---> Deploy ---> congratulations
-
-si hago push nuevos, el versel toma las actualizaciones automaticamente
-Si lo hacemos colocar el link del deploy en el readme
-
-No es necesario
 toast container para las alertas y confirmaciones de pantalla ejemplo si tengo algun console error 
 
 
 ERRORES COMUNES
 
 1. dejar comentarios y console.log
-2. dejar componentes variables y archivos innecesarios
-3. dejar librerias instaladas sin usar
+2. dejar componentes, variables y archivos innecesarios
 4. fragmentos innecesarios <></>
 5. props sueltos
 6. componentes dentro de componentes q tienen un solo llamado o que aporten muy poco, no son reutilizables, ni nada
-7. los componentes que se mencionan en el slide son obligatorios y deben respetar nombre y ubicacion
 
-app
-navbar
-cartwidget
-itemlistcontainer
-itemlist
-item
-itemdetailcontainer
-itemdetail
-itemcount
-cart
-cartprovider //// VERIFICAR NOMBRE
 
 

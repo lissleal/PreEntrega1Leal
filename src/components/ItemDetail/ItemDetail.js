@@ -2,22 +2,34 @@ import { Link } from 'react-router-dom';
 import ItemCount from '../ItemCount/ItemCount'
 import './ItemDetail.scss'
 import { useState, useContext } from 'react'
-import { CarritoContext } from '../../context/CarritoContext'
+import { CartContext } from '../../context/CartContext'
+import {toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const ItemDetail = ({id, name, img, category, description, price, stock}) => {
 //traigo del context agregar producto
 
 const [quantityAdded, setQuantityAdded] = useState(0);
 //traer del context la funcion agregar producto
-const {addItem} = useContext(CarritoContext)
+const {addItem} = useContext(CartContext)
 
 const handleOnAdd = (quantity) => {
     setQuantityAdded(quantity)
     const item = {id, name, price}
 
     addItem(item,quantity)
+
+    toast.info('Se añadio su producto', {
+        position: "top-center",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        });
 }
-// const {agregarProducto} = useContext(CarritoContext);
 
   return (
     <article className='CardDetail'>

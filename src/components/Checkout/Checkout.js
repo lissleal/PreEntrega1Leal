@@ -1,10 +1,10 @@
 import { useContext, useState } from 'react'
-import { CarritoContext } from '../../context/CarritoContext'
+import { CartContext } from '../../context/CartContext'
 import { Timestamp, addDoc, collection, documentId, getDocs, query, where, writeBatch } from 'firebase/firestore'
 import { db } from '../../services/firebase/firebaseConfig'
 import CheckoutForm from '../CheckoutForm/CheckoutForm'
 import './Checkout.scss'
-import Notificacion from '../Toastify/Notificacion'
+import { toast } from 'react-toastify'
 
 const Checkout = () => {
 
@@ -12,7 +12,7 @@ const Checkout = () => {
     const [orderId, setOrderId] = useState("")
     const [error, setError] = useState(null)
 
-    const { cart, total, clearCart} = useContext(CarritoContext) 
+    const { cart, total, clearCart} = useContext(CartContext) 
 
     const createOrder = async ({name, phone, email}) => {
         setLoading(true)
@@ -65,17 +65,12 @@ const Checkout = () => {
                 clearCart()
             }else{
                 setError("Hay productos que estan fuera de stock")
-                return(
-                    <Notificacion/>
-                )
+                toast.error("Hay productos fuera de stock")
             }
         
         }
-        catch(error){
-            setError("Ha ocurrido un error al procesar la orden")
-                        return(
-                <Notificacion/>
-            )
+        catch{
+            setError(error)
         }
         finally{
             setLoading(false)
@@ -84,17 +79,20 @@ const Checkout = () => {
 
     if (loading) {
         return (
-            <h1>Se está generando su orden</h1>
+            <div className="Container">
+                <h1>Se está generando su orden</h1>
+            </div>
         )
     }
     if (orderId) {
         return (
-            <h1 className='checkout'>El id de su orden es: {orderId}</h1>
+            <div className='checkout'>
+                <p >El id de su orden es: {orderId}</p>
+            </div>
         )
     }
   return (
     <div className='checkout'>
-        {error && <Notificacion message={error} />}
         <h1>Checkout</h1>
         <CheckoutForm onConfirm={createOrder} />
     </div>
