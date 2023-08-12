@@ -26,7 +26,7 @@ const ItemDetailContainer = () => {
             setProduct(productAdapted)
         }) 
         .catch(error => {
-            console.error(error)
+            toast(error)
         })
         .finally(() => {
             setLoading(false)
