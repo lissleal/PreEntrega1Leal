@@ -6,24 +6,24 @@ import { db } from "../../services/firebase/firebaseConfig"
 import './ItemListContainer.scss'
 import { toast } from "react-toastify"
 
-function ItemListContainer ({greeting}) {
+function ItemListContainer({ greeting }) {
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
 
-    const {categoryId} = useParams()
+    const { categoryId } = useParams()
 
     useEffect(() => {
         setLoading(true)
 
         const collectionRef = categoryId ?
             query(collection(db, "inventario"), where("category", "==", categoryId))
-            : collection(db, "inventario")   
-            
+            : collection(db, "inventario")
+
         getDocs(collectionRef)
             .then(response => {
-                const productsAdapted = response.docs.map(doc =>{
+                const productsAdapted = response.docs.map(doc => {
                     const data = doc.data()
-                    return { id: doc.id, ...data}
+                    return { id: doc.id, ...data }
                 })
                 setProducts(productsAdapted)
             })
@@ -33,7 +33,7 @@ function ItemListContainer ({greeting}) {
             .finally(() => {
                 setLoading(false)
             })
-        
+
     }, [categoryId])
 
     if (loading) {
@@ -43,10 +43,12 @@ function ItemListContainer ({greeting}) {
             </div>
         )
     }
-    
+
     return (
         <div className="ContenedorPrincipal">
             <h1>{greeting}</h1>
+            <h2>{categoryId}</h2>
+
             <ItemList products={products} />
         </div>
     )

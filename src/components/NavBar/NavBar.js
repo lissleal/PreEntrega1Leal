@@ -13,7 +13,7 @@ function NavBar() {
                 <NavLink to="/category/Juguetes">Juguetes</NavLink>
 
             </div>
-            <CartWidget/>
+            <CartWidget />
         </nav>
     )
 }
